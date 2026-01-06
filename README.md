@@ -1,87 +1,50 @@
-# proyecto_13_machine_learning
-Machine Learning | Pronósticos y predicciones | Sklearn  | Algoritmos | Regresión Logística | Árbol de decisión: Bosque aleatorio (random forest) y Gradiente boosting |  Clustering K-Means | Supervisado - No Supervisado | Clasificación | División Aleatoria y Temporal
+# 🏋️ Model Fitness: Customer Retention Strategy & Predictive Analytics
 
-# ESTRATEGIA DE RETENCIÓN DE CLIENTES PARA MODEL FITNESS
+## 🎯 Project Objective
+The goal of this project was to develop a data-driven strategy for **Model Fitness** to mitigate customer churn. By leveraging **Machine Learning**, I built models to predict the probability of cancellation for the following month and used **Unsupervised Learning** to segment customers into distinct behavioral profiles, allowing for personalized retention interventions.
 
-## RESUMEN DEL PROYECTO
-Análisis del comportamiento de clientes en la cadena de gimnasios Model Fitness para:
-1. Predecir probabilidad de cancelación (churn)
-2. Identificar segmentos clave de clientes
-3. Desarrollar estrategias de retención basadas en datos
+## 🛠️ Technical Pipeline & Methodology
+The analysis was executed through a comprehensive Machine Learning workflow:
 
-## OBJETIVO
-1. Reducir la tasa de cancelación mensual (actualmente 26.5%)
-2. Mejorar la retención de clientes mediante intervenciones personalizadas
-3. Optimizar estrategias de marketing y fidelización
+1.  **Exploratory Data Analysis (EDA):** Analyzed a dataset of 4,000 customers with 14 behavioral and demographic features.
+2.  **Predictive Modeling (Supervised Learning):**
+    * Implemented and compared **Logistic Regression** and **Random Forest Classifier**.
+    * **Performance Metrics:** Logistic Regression outperformed with **92.25% Accuracy** and **97.06% ROC AUC**.
+3.  **Customer Segmentation (Unsupervised Learning):**
+    * Applied **K-Means Clustering** to identify 5 distinct user profiles.
+    * Used **Dendrograms** to determine the optimal number of clusters.
+4.  **Feature Importance:** Identified that contract duration and visit frequency are the strongest predictors of retention.
 
-## METODOLOGÍA DE ANÁLISIS
+## 📊 Key Findings & Model Performance
 
-### 1. DESCRIPCIÓN DE LOS DATOS
-- Dataset: 4,000 clientes con 14 características
-- Variables clave:
-  - Demográficas: edad, género
-  - Comportamiento: frecuencia de visitas, gastos adicionales
-  - Contrato: tipo, tiempo restante
-  - Churn: cancelación en el mes siguiente (26.5% tasa base)
+### Model Comparison Table:
+| Metric | Logistic Regression | Random Forest |
+| :--- | :--- | :--- |
+| **Accuracy** | 92.25% | 91.50% |
+| **Recall** | 82.83% | 81.31% |
+| **ROC AUC** | 97.06% | 96.80% |
 
-### 2. PREPROCESAMIENTO DE DATOS
-- Limpieza: sin valores nulos
-- Estandarización: escalado para modelos
-- División: 80/20 train-test split
-- Codificación: variables categóricas binarias
+### Strategic Segmentation:
+* **Cluster 3 (Critical Risk):** 51.4% Churn rate. Characteristics: Short-term contracts + Low engagement.
+* **Cluster 0 (Loyal Core):** 2.8% Churn rate. Characteristics: Long-term commitment + High additional spending.
 
-### 3. PRUEBA DE HIPÓTESIS
-#### Modelos predictivos:
-| Métrica         | Regresión Logística | Bosque Aleatorio |
-|-----------------|---------------------|------------------|
-| Exactitud       | 92.25%              | 91.50%           |
-| Recall          | 82.83%              | 81.31%           |
-| ROC AUC         | 97.06%              | 96.80%           |
+## 💡 Strategic Recommendations
+* **Onboarding Optimization:** Focus resources on customers during their first 60 days, as this period is critical for long-term retention.
+* **Incentivize Commitment:** Shift users from 1-month to 6/12-month contracts through targeted discounting.
+* **Engagement Alarms:** Implement an automated system to trigger retention offers when a user's weekly visit frequency drops below their historical baseline.
 
-#### Segmentación (5 clústeres):
-| Clúster | Tasa Churn | Perfil |
-|---------|------------|--------|
-| 0       | 2.8%       | Leales largo plazo |
-| 1       | 26.8%      | Activos corto plazo |
-| 2       | 44.4%      | Bajo compromiso |
-| 3       | 51.4%      | Alto riesgo |
-| 4       | 6.8%       | Estables |
+## 📂 Project Structure
+* `Sprint_Proyecto_13.ipynb`: Full analytical notebook including EDA, modeling, and conclusions.
+* `gym_churn_us.csv`: Customer behavioral dataset.
+* `Executive_Summary.pdf`: Strategic presentation for stakeholders.
 
-## CONCLUSIONES PRINCIPALES
-1. **Factores clave de churn**:
-   - Contratos cortos (1 mes) tienen 5x mayor riesgo
-   - Clientes nuevos (<2 meses) son 3x más propensos a cancelar
-   - Baja frecuencia de visitas actual predice cancelación
+## 🚀 Tech Stack
+* **Python:** Pandas, NumPy.
+* **Machine Learning:** Scikit-learn (LogisticRegression, RandomForestClassifier, KMeans).
+* **Visualization:** Matplotlib, Seaborn.
+* **Statistics:** SciPy (Dendrogram/Linkage).
 
-2. **Segmentos críticos**:
-   - Clúster 3: 51% churn - Lejanía + contrato corto
-   - Clúster 2: 44% churn - Bajo uso + sin beneficios adicionales
-
-3. **Oportunidades**:
-   - Programas de fidelización para contratos largos
-   - Incentivos para aumentar frecuencia de visitas
-   - Enfoque en clientes durante primeros 60 días
-
-## RECOMENDACIONES ESTRATÉGICAS
-1. **Paquetes de compromiso**:
-   - Ofrecer descuentos en contratos de 6/12 meses
-   - Bonificación por renovación anticipada
-
-2. **Programa de onboarding**:
-   - Sesiones introductorias para nuevos miembros
-   - Retos de 30 días con seguimiento personalizado
-
-3. **Intervenciones segmentadas**:
-   - Clúster 3: Ofertas de transporte/estacionamiento
-   - Clúster 2: Paquetes de clases grupales incluidos
-
-4. **Sistema de alertas**:
-   - Monitorear disminución en frecuencia de visitas
-   - Activación automática de ofertas de retención
-
-## TECNOLOGÍAS UTILIZADAS
-- Python (Pandas, NumPy)
-- Scikit-learn (Regresión Logística, Random Forest, K-Means)
-- Matplotlib/Seaborn (Visualización)
-- SciPy (Análisis estadístico)
-- Jupyter Notebooks (Análisis interactivo)
+---
+**Author:** Marcel Andrés Palma Céspedes  
+**Role:** Data Scientist / ML Analyst  
+**Date:** 03/08/2025
